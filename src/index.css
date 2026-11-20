@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  background: transparent;
+  min-height: 100vh;
+}
+
+.page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+}
+
+.stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.dial {
+  display: block;
+  width: 100%;
+  height: 100%;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.dial.dragging {
+  cursor: grabbing;
+}
+
+.dial-wrap {
+  position: relative;
+  width: min(92vw, 88vh);
+  aspect-ratio: 1 / 1;
+}
+
+/* Botões redondos abaixo do mostrador do ângulo (viewBox: y 108 de 1000) */
+.round-button {
+  position: absolute;
+  top: 60.8%;
+  transform: translate(-50%, -50%);
+  width: 3.4%;
+  aspect-ratio: 1 / 1;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: rgba(17, 17, 17, 0.85);
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.round-button:hover {
+  transform: translate(-50%, -50%) scale(1.1);
+  background: rgba(17, 17, 17, 0.95);
+}
+
+.round-button svg {
+  width: 56%;
+  height: 56%;
+}
+
+.info-button {
+  left: 50%;
+}
+
+.info-button:focus-visible {
+  outline: 2px solid #e10600;
+  outline-offset: 2px;
+}
+
+.info-panel {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-height: 92%;
+  overflow-y: auto;
+  padding: 24px 20px 20px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.94);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  color: #111;
+  text-align: center;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+}
+
+.info-panel p {
+  margin: 6px 0;
+  font-size: 16px;
+}
+
+.info-author {
+  font-style: italic;
+  text-decoration: underline;
+}
+
+.info-section {
+  margin: 14px 0 4px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.info-help {
+  margin: 0;
+  padding-left: 20px;
+  text-align: left;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.info-help li {
+  margin: 4px 0;
+}
+
+.lang-switch {
+  display: inline-flex;
+  margin-top: 10px;
+  border: 1px solid #111;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.lang-switch button {
+  padding: 4px 12px;
+  border: none;
+  background: transparent;
+  color: #111;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.lang-switch button[aria-pressed='true'] {
+  background: #111;
+  color: #fff;
+}
+
+.info-title {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.info-close {
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  padding: 0 6px;
+  border: none;
+  background: transparent;
+  color: #444;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.info-github {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  color: #111;
+  font-size: 16px;
+  text-decoration: none;
+}
+
+.info-github:hover {
+  text-decoration: underline;
+}
+
+.info-github svg {
+  width: 20px;
+  height: 20px;
+}
